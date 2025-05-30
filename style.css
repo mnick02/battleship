@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    min-height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.game-header {
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.game-status {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    backdrop-filter: blur(10px);
+}
+
+.boards-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.board-section {
+    text-align: center;
+}
+
+.board-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.gameboard {
+    display: inline-grid;
+    grid-template-columns: repeat(10, 35px);
+    grid-template-rows: repeat(10, 35px);
+    gap: 2px;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.cell {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #4a90e2;
+    background: rgba(74, 144, 226, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.cell:hover {
+    background: rgba(74, 144, 226, 0.6);
+    transform: scale(1.1);
+}
+
+.cell.ship {
+    background: rgba(50, 150, 50, 0.7);
+}
+
+.cell.hit {
+    background: rgba(220, 20, 20, 0.8);
+    color: white;
+}
+
+.cell.miss {
+    background: rgba(100, 100, 100, 0.6);
+    color: white;
+}
+
+.cell.sunk {
+    background: rgba(150, 0, 0, 0.9);
+    color: white;
+}
+
+.enemy-board .cell {
+    cursor: pointer;
+}
+
+.enemy-board .cell.ship {
+    background: rgba(74, 144, 226, 0.3); /* Hide enemy ships */
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #4ecdc4, #6dd5ed);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ship-placement {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.game-over-content {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.game-over h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .boards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .gameboard {
+        grid-template-columns: repeat(10, 30px);
+        grid-template-rows: repeat(10, 30px);
+    }
+    
+    .cell {
+        width: 30px;
+        height: 30px;
+    }
+}
