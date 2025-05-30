@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Battleship</title>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>🚢 BATTLESHIP 🚢</h1>
+            <div class="game-status" id="gameStatus">Welcome to Battleship! Set up your ships.</div>
+        </div>
+
+        <div class="ship-placement" id="shipPlacement">
+            <h3>Ship Placement Phase</h3>
+            <p>Click "Random Placement" to automatically place your ships</p>
+            <div class="controls">
+                <button class="btn btn-primary" id="randomPlacementBtn">Random Placement</button>
+                <button class="btn btn-secondary" id="startGameBtn" disabled>Start Game</button>
+            </div>
+        </div>
+
+        <div class="boards-container">
+            <div class="board-section">
+                <div class="board-title">Your Fleet</div>
+                <div class="gameboard player-board" id="playerBoard"></div>
+            </div>
+            
+            <div class="board-section">
+                <div class="board-title">Enemy Fleet</div>
+                <div class="gameboard enemy-board" id="enemyBoard"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" id="newGameBtn">New Game</button>
+        </div>
+    </div>
+
+    <div class="game-over" id="gameOverModal">
+        <div class="game-over-content">
+            <h2 id="gameOverTitle">Game Over</h2>
+            <p id="gameOverMessage">You won!</p>
+            <button class="btn btn-primary" onclick="startNewGame()">Play Again</button>
+        </div>
+    </div>
+</body>
+</html>
